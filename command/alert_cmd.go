@@ -10,6 +10,7 @@ import (
 	"strconv"
 	"strings"
 	"time"
+	"fmt"
 )
 
 func NewAlertClient(c *gcli.Context) (*alert.Client, error) {
@@ -837,7 +838,7 @@ func CountAlertsAction(c *gcli.Context) {
 		printMessage(ERROR,err.Error())
 		os.Exit(1)
 	}
-	printMessage(INFO, string(len(resp.Alerts)))
+	printMessage(INFO, fmt.Sprint(len(resp.Alerts)))
 }
 
 // ListAlertNotesAction retrieves specified alert notes from Opsgenie.
